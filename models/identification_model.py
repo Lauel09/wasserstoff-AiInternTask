@@ -2,8 +2,7 @@ import os
 import requests
 from ultralytics import YOLO
 from PIL import Image
-import json
-
+import tempfile
 class IdentificationModel:
     model_folder = "model_assets/"
     model_name = "yolov8n.pt"
@@ -16,13 +15,15 @@ class IdentificationModel:
     model = None
     desc_path = "data/output/desc.json"
     
+    temp_dir = tempfile.TemporaryDirectory()
+
 
     # Since this is an inference model which means model will predict
     # boxes, confidences and classes of objects in the image
     # Thus I feel there is a need to store the inferenced output image
     # for the visualization of the results, which I did use this in.
-    output_dir = os.path.abspath("data/output")
-    output_img_path = output_dir + "/id_model.jpg"
+    
+    output_img_path = temp_dir.name + "/id_model.jpg"
 
 
     # Whole process of model not existing
@@ -79,6 +80,7 @@ class IdentificationModel:
 
             # Save the output image of this model
             result.save(self.output_img_path)
+            print(f"[INFO] Output image saved to {self.output_img_path}")
                 
         self.desc = descriptions
 

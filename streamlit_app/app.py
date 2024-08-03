@@ -21,7 +21,7 @@ def visualize(final_dict, img_path):
     # Load the original image
     id_model_image_path = list(final_dict.values())[0]['id_model_image_path']
     annotated_image = cv2.imread(id_model_image_path)
-    original_image = cv2.cvtColor(annotated_image, cv2.COLOR_BGR2RGB)
+    annotated_image = cv2.cvtColor(annotated_image, cv2.COLOR_BGR2RGB)
 
     # this is the dataframe I am going to use to display the data
     data = []

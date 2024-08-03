@@ -1,4 +1,14 @@
-
+---
+title: "Wasserstoff Internship Task"
+emoji: 🧠
+colorFrom: indigo
+colorTo: blue
+sdk: streamlit
+sdk_version: 1.37.0
+app_file: streamlit_app/app.py
+tags:
+- ethics
+---
 # Internship Task
 
 This repository contains the code and resources for an internship task focused on image processing and text extraction using machine learning models.
@@ -67,4 +77,7 @@ The folder structure of the repository is as follows:
 
 To run the Streamlit application, use the following command:
 ```sh
-streamlit run streamlit_app/app.py
+    streamlit run streamlit_app/app.py
+```
+
+Streamlit app hosted on Huggingface Spaces: [Wasserstoff Internship Task](https://huggingface.co/spaces/Lauel/wasserstoff-AiInternTask)
