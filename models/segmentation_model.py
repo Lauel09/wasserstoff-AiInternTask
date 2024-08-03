@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import os
 import cv2
 import numpy as np
-
+import tempfile
 """
     This is our SegmentationModel. Simply put, it applies Image Segmentation using
     ultralytics' pretrained model yolov8-s where 's' stands for small.
@@ -15,7 +15,7 @@ class SegmentationModel:
     script_dir = os.path.dirname(__file__) 
 
     # Directory to save the metadata json file
-    output_dir = os.path.abspath("data/output")
+    output_dir = tempfile.TemporaryDirectory()
     model_path = os.path.abspath("model_assets/" + model_name)
 
     def __init__(self):
@@ -66,12 +66,13 @@ class SegmentationModel:
                     # object_id is an comibination of master_id and idx
                     # where master_id is the name of the original image without the extension
                     object_id = f"{master_id}_obj_{idx}"
-                    object_img_path = self.output_dir + f"/{object_id}.jpg"
+                    object_img_path = self.output_dir.name + f"/{object_id}.jpg"
 
                     # Save the shaded object to the output directory
                     # These shaded objects are those segmented objects
                     # and if wanted can be anytime loaded and used
                     cv2.imwrite(object_img_path, shaded_object)
+                    print(f"[INFO] Saved shaded object to {object_img_path}")
                     segmented_objects.append(shaded_object)
 
 
