@@ -115,7 +115,7 @@ if uploaded_file is not None:
             print(f"[INFO] Successfully loaded object image from {object_img_path}")
             st.write("")
         else:
-            raise Exception(f"A path doesn't exist", object_img_path)
+            raise Exception(f" Path doesn't exist", object_img_path)
 
     id_model = IdentificationModel()
     desc = id_model.generate_descriptions(img_path)
@@ -139,3 +139,8 @@ if uploaded_file is not None:
         st.pyplot(fig)
     else:
         st.write("No detections were made.")
+    
+    st.write("Mapped Data Table:")
+    st.table(final_dict)
+else:
+    st.write("Please upload an image to start the pipeline testing.")
