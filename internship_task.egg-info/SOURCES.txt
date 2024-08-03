@@ -1,0 +1,7 @@
+README.md
+setup.py
+internship_task.egg-info/PKG-INFO
+internship_task.egg-info/SOURCES.txt
+internship_task.egg-info/dependency_links.txt
+internship_task.egg-info/requires.txt
+internship_task.egg-info/top_level.txt
