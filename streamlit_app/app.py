@@ -13,8 +13,13 @@ from models.text_extraction_model import TextExtractionModel
 from models.summarization_model import SummarizationModel
 from utils.data_mapping import DataMapping
 from utils.visualization import shorten_path
+import time
+import sys
+
 
 def visualize(final_dict, img_path):
+
+
     """
     Visualize the original image with annotations and a table summarizing all data.
     """
@@ -69,12 +74,24 @@ def visualize(final_dict, img_path):
     plt.tight_layout()
     return fig
 
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+    # Add the root directory to the PYTHONPATH
+sys.path.insert(0, root_dir)
+
+    # Optionally, print the PYTHONPATH to verify
+
+    
 # Streamlit UI
 st.title("Pipeline Testing UI")
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+    # Get the root directory of the project
+
 
 if uploaded_file is not None:
+
+
     # Save the uploaded file to a temporary location
     img_path = "temp.jpg"
     with open(img_path, "wb") as f:
@@ -89,6 +106,16 @@ if uploaded_file is not None:
     segmented_objects, obj_metadata = seg_model.predict(img_path)
 
     st.write("Object Metadata:", obj_metadata)
+
+    for object in obj_metadata:
+        
+        object_img_path = object['object_img_path']
+        if os.path.exists(object_img_path):
+            st.image(object_img_path, caption=f" Object Image {object['object_id']}", use_column_width=True)
+            print(f"[INFO] Successfully loaded object image from {object_img_path}")
+            st.write("")
+        else:
+            raise Exception(f"A path doesn't exist", object_img_path)
 
     id_model = IdentificationModel()
     desc = id_model.generate_descriptions(img_path)
