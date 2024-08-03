@@ -25,6 +25,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.pyc
 
 # Virtual environment
 venv/
@@ -32,6 +33,7 @@ ENV/
 env/
 env.bak/
 venv.bak/
+data/output/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
