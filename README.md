@@ -1,14 +1,3 @@
----
-title: "Wasserstoff Internship Task"
-emoji: 🧠
-colorFrom: indigo
-colorTo: blue
-sdk: streamlit
-sdk_version: 1.37.0
-app_file: streamlit_app/app.py
-tags:
-- ethics
----
 # Internship Task
 
 This repository contains the code and resources for an internship task focused on image processing and text extraction using machine learning models.
@@ -55,9 +44,9 @@ The folder structure of the repository is as follows:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/Lauel09/wasserstoff/AiInternTask.git
+    git clone https://github.com/Lauel09/wasserstoff-AiInternTask.git
     
-    cd internship-task
+    cd wasserstoff-AiInternTask
     ```
 
 2. Create a virtual environment and activate it:
@@ -72,6 +61,15 @@ The folder structure of the repository is as follows:
     ```
 
 ## Usage
+
+
+If you are running model files like:-
+```bash
+    python3 models/identification_model.py  # or any other model
+```
+Make sure to run from the root folder,i.e., wasserstoff-AiInternTask.
+
+Not even the models, but also the tests and utils files should be run from the root folder, including the streamlit app as shown below.
 
 ### Running the Streamlit App
 
