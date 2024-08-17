@@ -17,6 +17,40 @@ import time
 import sys
 
 
+import nltk
+import string
+from nltk.corpus import stopwords
+import pytesseract as pyt
+nltk.download("stopwords")
+
+
+class TextExtractionNew:
+    def __init__(self):
+        print("INITIALIZING TextExtractionModel")
+    
+
+    def preprocess_image(self, img_path):
+        if img is None:
+            raise ValueError(f"Failed to load image at {img_path}")
+        # Resize the image
+        img = cv2.resize(img, (800, 600))
+        return img
+    
+
+    
+
+    def extract_text(self, img_path):
+
+        print("Pre processing image")
+        processed_image = self.preprocess_image(img_path)
+        if processed_image is None:
+            raise ValueError(f"Failed to load image at {img_path}")
+
+        text = pyt.image_to_string(processed_image)
+        print(f"[INFO] Text extracted:{text}")
+        return text
+
+
 def visualize(final_dict, img_path):
 
 
@@ -121,7 +155,7 @@ if uploaded_file is not None:
     desc = id_model.generate_descriptions(img_path)
     st.write("Descriptions:", desc)
 
-    txt_ext_model = TextExtractionModel()
+    txt_ext_model = TextExtractionNew()
     text = txt_ext_model.extract_text(img_path)
     st.write("Extracted Text:", text)
 
