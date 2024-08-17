@@ -30,10 +30,12 @@ class TextExtractionNew:
     
 
     def preprocess_image(self, img_path):
-        if img is None:
+
+        image = cv2.imread(img_path)
+        if image is None:
             raise ValueError(f"Failed to load image at {img_path}")
         # Resize the image
-        img = cv2.resize(img, (800, 600))
+        img = cv2.resize(image, (800, 600))
         return img
     
 
