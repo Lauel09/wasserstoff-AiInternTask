@@ -1,7 +1,7 @@
 # Internship Task
 
 This repository contains the code and resources for an internship task focused on image processing and text extraction using machine learning models.
-
+[Refer to the post and demonstration here](https://www.linkedin.com/posts/siddharth-upadhyay-b512a610b_presenting-a-project-i-built-months-ago-activity-7269778125415149568-WB9a?utm_source=share&utm_medium=member_desktop)
 ## Folder Structure
 
 
